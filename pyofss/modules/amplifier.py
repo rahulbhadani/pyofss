@@ -35,9 +35,9 @@ class Amplifier(object):
         self.name = name
 
         if (gain is None) and (power is None):
-            print "Amplifier has not been given gain or power parameter"
+            print("Amplifier has not been given gain or power parameter")
         if (gain is not None) and (power is not None):
-            print "Amplifier given both gain and power parameters"
+            print("Amplifier given both gain and power parameters")
 
         self.gain = gain
         self.power = power

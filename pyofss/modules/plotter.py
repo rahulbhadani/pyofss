@@ -55,7 +55,7 @@ def map_plot(x, y, z, x_label="", y_label="", z_label="",
 
     Generate a map plot.
     """
-    print "\nGenerating map_plot..."
+    print("\nGenerating map_plot...")
     plt.clf()
 
     plt.xlabel(x_label)
@@ -82,7 +82,7 @@ def map_plot(x, y, z, x_label="", y_label="", z_label="",
 
     if filename:
         plt.savefig(filename)
-        print "Wrote file", filename
+        print("Wrote file", filename)
     else:
         plt.show()
 
@@ -105,13 +105,13 @@ def waterfall_plot(x, y, z, x_label="", y_label="", z_label="",
 
     Generate a waterfall plot.
     """
-    print "\nGenerating waterfall_plot..."
+    print("\nGenerating waterfall_plot...")
     plt.clf()
 
     fig = plt.figure()
     ax = fig.gca(projection='3d')
 
-    data = [zip(x, y[n]) for n, z_n in enumerate(z)]
+    data = [list(zip(x, y[n])) for n, z_n in enumerate(z)]
 
     if use_poly:
         from matplotlib.collections import PolyCollection
@@ -145,7 +145,7 @@ def waterfall_plot(x, y, z, x_label="", y_label="", z_label="",
 
     if filename:
         plt.savefig(filename)
-        print "Wrote file", filename
+        print("Wrote file", filename)
     else:
         plt.show()
 
@@ -169,7 +169,7 @@ def single_plot(x, y, x_label="", y_label="", label="",
 
     Generate a single plot.
     """
-    print "\nGenerating single_plot..."
+    print("\nGenerating single_plot...")
     plt.clf()
 
     plt.plot(x, y, style, label=label)
@@ -190,7 +190,7 @@ def single_plot(x, y, x_label="", y_label="", label="",
 
     if filename:
         plt.savefig(filename)
-        print "Wrote file", filename
+        print("Wrote file", filename)
     else:
         plt.show()
 
@@ -218,7 +218,7 @@ def double_plot(x, y, X, Y, x_label="", y_label="", X_label="",
     Generate a double plot. The two plots will be arranged vertically,
     one above the other.
     """
-    print "\nGenerating double_plot..."
+    print("\nGenerating double_plot...")
 
     plt.clf()
 
@@ -253,7 +253,7 @@ def double_plot(x, y, X, Y, x_label="", y_label="", X_label="",
 
     if filename:
         plt.savefig(filename)
-        print "Wrote file", filename
+        print("Wrote file", filename)
     else:
         plt.show()
 
@@ -276,7 +276,7 @@ def multi_plot(x, ys, zs=[], x_label="", y_label="",
 
     Generate multiple overlapping plots.
     """
-    print "\nGenerating multi_plot..."
+    print("\nGenerating multi_plot...")
     plt.clf()
 
     if len(zs) < 6:
@@ -310,7 +310,7 @@ def multi_plot(x, ys, zs=[], x_label="", y_label="",
 
     if filename:
         plt.savefig(filename)
-        print "Wrote file", filename
+        print("Wrote file", filename)
     else:
         plt.show()
 
@@ -333,7 +333,7 @@ def quad_plot(x, ys, zs, x_label="", y_label="", z_labels=[""],
 
     Generate four plots arranged in a two-by-two square.
     """
-    print "\nGenerating quad_plot..."
+    print("\nGenerating quad_plot...")
     plt.clf()
 
     colours = ['blue', 'green', 'red', 'orange']
@@ -372,7 +372,7 @@ def quad_plot(x, ys, zs, x_label="", y_label="", z_labels=[""],
 
     if filename:
         plt.savefig(filename)
-        print "Wrote file", filename
+        print("Wrote file", filename)
     else:
         plt.show()
 
@@ -397,7 +397,7 @@ def animated_plot(x, y, z, x_label="", y_label="", z_label="",
 
     Generate an animated plot, either interactive or saved as a video.
     """
-    print "\nGenerating animated_plot..."
+    print("\nGenerating animated_plot...")
     #~plt.clf()
 
     fig = plt.figure()
@@ -428,7 +428,7 @@ def animated_plot(x, y, z, x_label="", y_label="", z_label="",
     if filename:
         ani.save(filename, fps=fps, clear_temp=clear_temp,
                  frame_prefix=frame_prefix)
-        print "Wrote file", filename
+        print("Wrote file", filename)
     else:
         plt.show()
 
@@ -462,7 +462,7 @@ def convert_video(filename, output="ogv"):
                    '-vcodec', 'libx264', '-vpre', 'slow', '-vpre', 'baseline',
                    '-g', '30', '{0}'.format('.'.join([out_file, output])))
 
-    print "\n\nConverting video using command:\n%s\n\n" % ' '.join(command)
+    print("\n\nConverting video using command:\n%s\n\n" % ' '.join(command))
     subprocess.check_call(command)
 
-    print "\nWrote file", '.'.join([out_file, output])
+    print("\nWrote file", '.'.join([out_file, output]))
